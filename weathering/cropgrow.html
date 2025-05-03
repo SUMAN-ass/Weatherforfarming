@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Growth Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="cropgrow.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <header class="header">
+        <h1>Weather Dashboard For Framing</h1>
+        <p>Get accurate weather data and crop recommendations for your location</p>
+    </header>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="crop.html"><i class="fas fa-seedling"></i> Crop Search</a></li>
+            <li><a href="deatailsofcrop.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="bot.html"><i class="fas fa-robot"></i> AI Assistant</a></li>
+            <li><a href="cropgrow.html" class="active"><i class="fas fa-newspaper"></i> Average Climate</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1><i class="fas fa-seedling"></i> Crop Growth Guide</h1>
+        <p>Learn about optimal growing conditions and care instructions for your crops</p>
+    </header>
+
+    <div class="month-selector">
+        <div class="selector-container">
+            <h2>Karnataka Climate Data</h2>
+            
+        
+            <div class="select-range">
+                <div class="select-wrapper">
+                    <label for="startMonth">From</label>
+                    <select id="startMonth" class="month-select">
+                        <option value="" disabled selected>Start month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
+                <div class="select-wrapper">
+                    <label for="endMonth">To</label>
+                    <select id="endMonth" class="month-select">
+                        <option value="" disabled selected>End month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="climate-data" id="climateData">
+        <div class="data-container">
+            <h2 id="selectedMonthTitle">Select a Month Range</h2>
+            
+            <!-- Monthly Averages Table -->
+            <div class="monthly-averages">
+                <h3>Monthly Climate Averages</h3>
+                <div class="table-container">
+                    <table class="climate-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Temperature (°C)</th>
+                                <th>Rainfall (mm)</th>
+                                <th>Sunny Days</th>
+                                <th>Humidity (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="monthlyAveragesBody">
+                            <!-- Monthly data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Selected Period Overview -->
+            <div class="period-overview" id="periodOverview">
+                <h3>Selected Period Overview</h3>
+                <div class="overview-stats">
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-temperature-high"></i>
+                        </div>
+                        <div class="overview-content">
+                            <div class="overview-value" id="periodTemp">--</div>
+                            <div class="overview-label">Average Temperature</div>
+                            <div class="overview-unit">°C</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-cloud-rain"></i>
+                        </div>
+                        <div class="overview-content">
+                            <div class="overview-value" id="periodRain">--</div>
+                            <div class="overview-label">Total Rainfall</div>
+                            <div class="overview-unit">mm</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="overview-content">
+                            <div class="overview-value" id="periodSunny">--</div>
+                            <div class="overview-label">Average Sunny Days</div>
+                            <div class="overview-unit">days</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="overview-content">
+                            <div class="overview-value" id="periodHumidity">--</div>
+                            <div class="overview-label">Average Humidity</div>
+                            <div class="overview-unit">%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Weather Dashboard</h3>
+                <p>Real-time weather information and crop guidance powered by advanced APIs. Get accurate forecasts and expert farming advice.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="crop.html"><i class="fas fa-seedling"></i> Crop Search</a></li>
+                    <li><a href="deatailsofcrop.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="bot.html"><i class="fas fa-robot"></i> AI Assistant</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Weather Data</h3>
+                <ul>
+                    <li><i class="fas fa-temperature-high"></i> Temperature</li>
+                    <li><i class="fas fa-wind"></i> Wind Speed</li>
+                    <li><i class="fas fa-tint"></i> Humidity</li>
+                    <li><i class="fas fa-cloud-rain"></i> Rainfall</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Weather Dashboard. All rights reserved.</p>
+            <p>Data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeather</a></p>
+        </div>
+    </footer>
+    <script src="cropgrow.js"></script>
+</body>
+</html>

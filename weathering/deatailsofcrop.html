@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Growing Season Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="detaailsofcrop.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    
+    <header class="header">
+        <h1>Weather Dashboard For Farming</h1>
+        <p>Your Vegetable Growing Season Guide</p>
+    </header>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="crop.html"><i class="fas fa-seedling"></i> Crop Search</a></li>
+            <li><a href="deatailsofcrop.html" class="active"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="bot.html"><i class="fas fa-robot"></i> AI Assistant</a></li>
+            <li><a href="new.html"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="cropgrow.html"><i class="fas fa-newspaper"></i> Average Climate</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Vegetable Growing Season Finder</h1>
+            <div class="search-container">
+                <h2>Search for a Vegetable</h2>
+                <p>Enter the name of the vegetable you're interested in:</p>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Enter vegetable name (e.g., Tomato, Carrot, Broccoli)">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="loading"></div>
+            <div class="error"></div>
+            <div class="result-container">
+                <div class="vegetable-info">
+                    <h2 class="vegetable-name"></h2>
+                    <img class="vegetable-image" src="" alt="Vegetable image">
+                    <div class="vegetable-details">
+                        <div class="detail-item">
+                            <h3>Best Growing Temperature</h3>
+                            <p class="temperature"></p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>Optimal Humidity</h3>
+                            <p class="humidity"></p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>Days to Harvest</h3>
+                            <p class="harvest-time"></p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>Difficulty Level</h3>
+                            <p class="difficulty"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="growing-info">
+                    <h2>Growing Information</h2>
+                    <p class="growing-tips"></p>
+                    <h3>Best Months for Growing:</h3>
+                    <div class="optimal-months"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Weather Dashboard</h3>
+                <p>Real-time weather information powered by OpenWeather API. Get accurate forecasts and current weather conditions for any location worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="crop.html"><i class="fas fa-seedling"></i> Crop Search</a></li>
+                    <li><a href="deatailsofcrop.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="bot.html"><i class="fas fa-robot"></i> AI Assistant</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Weather Data</h3>
+                <ul>
+                    <li><i class="fas fa-temperature-high"></i> Temperature</li>
+                    <li><i class="fas fa-wind"></i> Wind Speed</li>
+                    <li><i class="fas fa-tint"></i> Humidity</li>
+                    <li><i class="fas fa-cloud-rain"></i> Rainfall</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Weather Dashboard For Farming. All rights reserved.</p>
+            <p>Data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeather</a></p>
+        </div>
+    </footer>
+    <script src="detaailsofcrop.js"></script>
+</body>
+</html> 

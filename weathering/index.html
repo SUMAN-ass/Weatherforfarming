@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p class="loading-text">Loading weather data...</p>
+        <div class="loading-progress"></div>
+    </div>
+
+    <div class="background"></div>
+    <div class="overlay"></div>
+    
+    <div class="content-wrapper" id="contentWrapper">
+      
+    <header class="header">
+        <h1>Weather Dashboard For Farming</h1>
+    </header>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="crop.html"><i class="fas fa-seedling"></i> Crop Search</a></li>
+            <li><a href="deatailsofcrop.html" ><i class="fas fa-chart-line"></i> Analytics</a></li>
+            <li><a href="bot.html"><i class="fas fa-robot"></i> AI Assistant</a></li>
+            <li><a href="new.html"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="cropgrow.html"><i class="fas fa-newspaper"></i> Average Climate</a></li>
+        </ul>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="citySearch" placeholder="Enter city name..." autocomplete="off">
+                <div id="citySuggestions" class="city-suggestions"></div>
+            </div>
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+    </nav>
+
+        <div class="container">
+            
+            <div id="error" class="error" style="display: none;"></div>
+            
+            <div id="weatherCard" class="weather-card" style="display: none;">
+                <div class="header-section">
+                    <div class="location-info">
+                        <h2><i class="fas fa-map-marker-alt"></i> <span id="location">Loading location...</span></h2>
+                        <p id="date-time">Loading...</p>
+                    </div>
+                    <div class="season-indicator" id="season">Loading...</div>
+                </div>
+                <div class="main-weather">
+                    <div class="temperature-section">
+                        <h1 id="temperature">--°C</h1>
+                        <p id="description">Weather Description</p>
+                        <p>Feels like: <span id="feels-like">--°C</span></p>
+                    </div>
+                    <div class="weather-icon-section">
+                        <div class="weather-icon">
+                            <i id="weather-icon" class="fas fa-cloud"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail">
+                        <i class="fas fa-wind"></i>
+                        <span id="wind">-- km/h</span>
+                        <small>Wind Speed</small>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-tint"></i>
+                        <span id="humidity">--%</span>
+                        <small>Humidity</small>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-cloud-rain"></i>
+                        <span id="rainfall">--%</span>
+                        <small>Rainfall</small>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <span id="pressure">-- hPa</span>
+                        <small>Pressure</small>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-sun"></i>
+                        <span id="uv-index">--</span>
+                        <small>UV Index</small>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-temperature-low"></i>
+                        <span id="dew-point">--°C</span>
+                        <small>Dew Point</small>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-lungs"></i>
+                        <span id="air-quality">--</span>
+                        <small>Air Quality</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="forecastCard" class="forecast-card" style="display: none;">
+                <h3 class="forecast-title"><i class="fas fa-calendar-alt"></i> 4-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                </div>
+            </div>
+            
+            <div id="weeklyForecastCard" class="weekly-forecast-card" style="display: none;">
+                <h3>7-Day Climate Forecast</h3>
+                <div class="weekly-forecast-container" id="weeklyForecastContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Weather Dashboard</h3>
+                <p>Real-time weather information powered by OpenWeather API. Get accurate forecasts and current weather conditions for any location worldwide.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-cloud-sun"></i> Forecast</a></li>
+                    <li><a href="#"><i class="fas fa-map-marked-alt"></i> Maps</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Weather Data</h3>
+                <ul>
+                    <li><i class="fas fa-temperature-high"></i> Temperature</li>
+                    <li><i class="fas fa-wind"></i> Wind Speed</li>
+                    <li><i class="fas fa-tint"></i> Humidity</li>
+                    <li><i class="fas fa-cloud-rain"></i> Rainfall</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Weather Dashboard. All rights reserved.</p>
+            <p>Data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeather</a></p>
+        </div>
+    </footer>
+    
+    <script src="index.js"></script>
+</body>
+</html> 
