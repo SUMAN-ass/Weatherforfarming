@@ -93,7 +93,7 @@ whearting/
 ### Installation Steps
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/whearting.git
+git clone https://github.com/SUMAN-ass/whearting.git
 ```
 
 2. Open the project directory:
